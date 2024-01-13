@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>버튼 클릭 이벤트</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2 id="title">정답일까?</h2>
+  <button id="grade">
+    채점
+  </button>
+  <script>
+  const $grade = document.querySelector('#grade');
+  function alertFunc() {
+    alert('정답입니다!👏');
+  }
+  $grade.addEventListener('click', alertFunc);
+  </script>
+</body>
+</html>
