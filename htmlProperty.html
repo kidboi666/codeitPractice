@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+  li {
+    list-style:upper-alpha;
+  }
+</style>
+</head>
+<body>
+<div id="content">
+  <h1>오늘 할 일</h1>
+  <ul id="today">
+    <li id="n2">자바스크립트 공부</li>
+    <li id="n3">고양이 화장실 청소</li>
+    <li id="n4">고양이 장난감 쇼핑</li>
+  </ul>
+  <h1>내일 할 일</h1>
+  <ul id="tomorrow">
+    <li id="b1">자바스크립트 공부</li>
+    <li id="b2">뮤지컬 공연 예매</li>
+    <li id="b3">유투브 시청</li>
+  </ul>
+</div>
+<script>
+// HTML 속성 (HTML attribute)
+const tomorrow = document.querySelector('#tomorrow');
+const item = tomorrow.firstElementChild;
+const link = item.firstElementChild;
+
+// element.getAttribute('속성'): 속성에 접근하기
+console.log(tomorrow.getAttribute('href'));
+console.log(item.getAttribute('class'));
+
+// element.setAttribute('속성', '값'): 속성 추가(수정)하기
+tomorrow.setAttribute('class', 'list');
+link.setAttribute('href', 'https://www.codeit.kr'); // 수정
+
+// element.removeAttribute('속성'): 속성 제거하기
+// tomorrow.removeAttribute('href');
+// tomorrow.removeAttribute('class');
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+  li {
+    list-style:upper-alpha;
+  }
+  .done {
+    text-decoration: line-through;
+    color: #a0a0a0
+  }
+</style>
+</head>
+<body>
+<div id="content">
+  <h1>오늘 할 일</h1>
+  <ul id="today">
+    <li id="n2">자바스크립트 공부</li>
+    <li id="n3">고양이 화장실 청소</li>
+    <li id="n4">고양이 장난감 쇼핑</li>
+  </ul>
+  <h1>내일 할 일</h1>
+  <ul id="tomorrow">
+    <li id="b1">자바스크립트 공부</li>
+    <li id="b2">뮤지컬 공연 예매</li>
+    <li id="b3">유투브 시청</li>
+  </ul>
+</div>
+<script>
+const today = document.querySelector('#today');
+const tomorrow = document.querySelector('#tomorrow');
+
+// element.classList: add, remove, toggle
+const item = tomorrow.children[1];
+item.classList.add('done', 'other');
+item.classList.remove('other');
+// item.classList.toggle('done', true); // add의 기능만 강제
+// item.classList.toggle('done', false); // remove의 기능만 강제
+
+// element.className
+today.children[1].className = 'done';
+
+// style 프로퍼티
+today.children[0].style.textDecoration = 'line-through';
+today.children[0].style.backgroundColor = '#dddddd';
+today.children[2].style.textDecoration = 'line-through';
+today.children[2].style.backgroundColor = '#dddddd';
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .done {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h1 id="title">오늘 할 일</h1>
+    <ul id="list">
+      <li class="item">자바스크립트 공부</li>
+      <li class="item">유투브 시청</li>
+      <li class="item">저녁 약속</li>
+      <li class="item">독서</li>
+    </ul>
+  </div>
+<script>
+  const $list = document.querySelector('#list');
+
+  $list.addEventListener('click', (event) => {
+    if (event.target.classList.contains('item')) { // 미리 지정한 클래스가 있는 요소인지 확인하여 해당 요소 이외에 요소를 클릭시 이벤트 버블링으로 이벤트가 작동하는 버그를 방지해줌
+      event.target.classList.toggle('done') 
+    }
+  });
+
+  const li = document.createElement('li');
+  li.classList.add('item');
+  li.textContent = '일기 쓰기';
+  $list.append(li);
+</script>
+</body>
+</html>

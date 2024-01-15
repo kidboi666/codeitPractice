@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+<div id="content">
+  <ul id="n">
+    <li id="n1"></li>
+    <li id="n2"></li>
+    <li id="n3"></li>
+    <li id="n4"></li>
+  </ul>
+  <ul id="b">
+    <li id="b1"></li>
+    <li id="b2"></li>
+    <li id="b3"></li>
+    <li id="b4"></li>
+  </ul>
+</div>
+<div id="footer">
+</div>
+<script>
+const myTag = document.querySelector('#n1');
+
+// textContent // html을 제외한 텍스트만 문자열로 리턴
+// innerHTML과 마찬가지로 내부의 값을 완전히 새로운 값으로 교체함
+// 단, 말그대로 텍스트만 다루기 때문에 특수문자도 그냥 텍스트로 처리해버림
+console.log(myTag.textContent);
+myTag.textContent = 'new Text!'
+
+// outerHTML // 해당 요소를 포함한 전체 html자체를 문자열로 리턴 (줄바꿈과 들여쓰기 전부)
+console.log(myTag.outerHTML);
+
+// innerHTML // 요소안에 있는 html자체를 문자열로 리턴 (줄바꿈과 들여쓰기 전부)
+// 요소 안의 정보 확인도 되지만, 내부의 html자체를 수정할때 자주 이용
+// 단, 내부에 있던 값 전체를 새로운 값으로 교체하기 때문에 주의 
+console.log(myTag.innerHTML); 
+myTag.innerHTML = '<li>Exotic</li>';
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+  li {
+    list-style:upper-alpha;
+  }
+</style>
+</head>
+<body>
+<div id="content">
+  <h1>오늘 할 일</h1>
+  <ul id="today">
+    <li id="n2">자바스크립트 공부</li>
+    <li id="n3">고양이 화장실 청소</li>
+    <li id="n4">고양이 장난감 쇼핑</li>
+  </ul>
+  <h1>내일 할 일</h1>
+  <ul id="tomorrow">
+    <li id="b1">자바스크립트 공부</li>
+    <li id="b2">뮤지컬 공연 예매</li>
+    <li id="b3">유투브 시청</li>
+  </ul>
+</div>
+<script>
+const today = document.querySelector('#today');
+
+today.innerHTML = '<li>처음</li>' + today.innerHTML
+today.innerHTML = today.innerHTML + '<li>마지막</li>'
+
+today.outerHTML = '<p>이전</p>' + today.outerHTML;
+
+const newToday = document.querySelector('#today'); // 위에 추가된 요소들을 다시 불러와 값 최신화
+newToday.outerHTML = newToday.outerHTML + '<p>다음</p>'
+
+// 요소 노드 추가하기
+const tomorrow = document.querySelector('#tomorrow');
+
+// 1. 요소 노드 만들기: document.createElements('태그이름')
+const first = document.createElement('li');
+
+// 2. 요소 노드 꾸미기: textContent, innerHTML ...
+first.textContent = '처음'
+
+// 3. 요소 노드 추가하기: NODE.prepend, append, after, before ...
+tomorrow.prepend(first); // 메소드를 호출한 노드의 제일 첫번째 노드로
+// 파라미터로 전달한 값을 추가할 수 있음.
+
+const last = document.createElement('li');
+last.textContent = '마지막';
+tomorrow.append(last);
+
+const prev = document.createElement('p');
+prev.textContent = '이전';
+tomorrow.before(prev);
+
+const next = document.createElement('p');
+next.textContent = '다음';
+tomorrow.after(next);
+
+// 복수의 매개변수를 통해서 순서대로 다양한 값들을 추가 할 수 있음.
+
+
+//노드 삭제하기: Node.remove();
+today
+
+
+</script>
+</body>
+</html>

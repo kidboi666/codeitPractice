@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+  li {
+    list-style:upper-alpha;
+  }
+</style>
+</head>
+<body>
+<div id="content">
+  <h1>오늘 할 일</h1>
+  <ul id="today">
+    <li id="n2">자바스크립트 공부</li>
+    <li id="n3">고양이 화장실 청소</li>
+    <li id="n4">고양이 장난감 쇼핑</li>
+  </ul>
+  <h1>내일 할 일</h1>
+  <ul id="tomorrow">
+    <li id="b1">자바스크립트 공부</li>
+    <li id="b2">뮤지컬 공연 예매</li>
+    <li id="b3">유투브 시청</li>
+  </ul>
+</div>
+<script>
+
+// 노드 삭제와 이동
+const today = document.querySelector('#today');
+const tomorrow = document.querySelector('#tomorrow');
+
+// 노드 삭제하기: Node.remove();
+// tomorrow.remove(); 
+// today.children[2].remove();
+
+// 노드 이동하기:prepend, append, before, after
+// today.append(tomorrow.children[1]);
+tomorrow.children[1].after(today.children[1]);
+tomorrow.children[2].before(today.children[1]);
+tomorrow.lastElementChild.before(today.children[0]);
+
+
+
+</script>
+</body>
+</html>
