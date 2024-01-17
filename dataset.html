@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JS with Codeit</title>
+  <style>
+    [data-status] {
+      padding: 5px 10px;
+    }
+    [data-status="대기중"] {
+      background-color: #FF6767;
+      color: #fff;
+    }
+    [data-status="진행중"] {
+      background-color: #5f62ff;
+      color: #fff;
+    }
+    [data-status="완료"] {
+      background-color: #07c456;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <p>할 일 : <b data-field="title"></b></p>
+  <p>담당자 : <b data-field="manager"></b></p>
+  <p>상태 : <b data-field="status"></b></p>
+  <div>
+    상태 변경: 
+    <button class="btn" data-status="대기중">대기중</button>
+    <button class="btn" data-status="진행중">진행중</button>
+    <button class="btn" data-status="완료">완료</button>
+  </div>
+<script>
+const fields = document.querySelectorAll('[data-field]');
+const task = {
+  title: '코드 에디터 개발',
+  manager: 'CastleRing, Raccoon Lee',
+  status: '',
+};
+
+for (let tag of fields) {
+  const field = tag.dataset.field; // field에 가져온 요소의 속성중 data-field의 속성값을 가져옴
+  tag.textContent = task[field]; // 가져온 tag 요소의 텍스트컨텐트로 객체task의 프로퍼티 키와 위에 할당한 속성값을 대조하여 값을 부여
+};
+
+const btns = document.querySelectorAll('.btn');
+for (let btn of btns) {
+  const status = btn.dataset.status; // 가져온 버튼안에 status속성을 가져옴
+  btn.addEventListener('click', () => {
+    fields[2].textContent = status; // status 속성값 자체를 텍스트로
+    fields[2].dataset.status = status; // 지정한 위치 안에 요소에 status 속성이 있는 요소를 찾고
+    // 거기에 status 속성을 추가해 css 속성 부여 
+  })
+}
+
+
+
+
+</script>
+</body>
+
+</html>
